@@ -1,0 +1,5 @@
+CAMINHO_TREINO='src/database/NVDA_treino.csv'
+CAMINHO_TESTE='src/database/NVDA_teste.csv'
+CAMINHO_NVDA='src/database/NVDA.csv'
+CAMINHO_ZIP='src/database/archive.zip'
+CAMINHO_DATABASE='src/database/'

@@ -9,13 +9,13 @@ install: ## Install Python requirements.
 	poetry lock
 	poetry install --no-root
 
-.PHONY: run
-run: ## Run the project.
-	python -m src.app
+.PHONY: run-train
+run-train: ## Run the project.
+	python -m src.app.train
 
-.PHONY: run-transform
-run-transform: ## Run first example script.
-	python src/scripts/transform.py
+.PHONY: run-unzip
+run-unzip: ## Run first example script.
+	python src/scripts/unzip.py
 
 .PHONY: run-split
 run-split: ## Run first example script.
