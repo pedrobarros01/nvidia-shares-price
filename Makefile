@@ -8,39 +8,18 @@ install: ## Install Python requirements.
 	python -m pip install --upgrade pip setuptools wheel poetry
 	poetry lock
 	poetry install --no-root
-	poetry run pre-commit install
 
 .PHONY: run
 run: ## Run the project.
-	poetry run python -m src.app
+	python -m src.app
 
-.PHONY: run-example-script
-run-example-script: ## Run first example script.
-	poetry run python src/scripts/example_xyz.py
+.PHONY: run-transform
+run-transform: ## Run first example script.
+	python src/scripts/transform.py
 
-.PHONY: run-env-var-usage-example-script
-run-env-var-example-script: ## Run environment variables usage example script.
-	poetry run python src/scripts/example_env.py
-
-.PHONY: notebook
-notebook: ## Start Jupyter Notebook.
-	poetry run jupyter notebook --notebook-dir=src/notebooks/ --browser='open %s'
-
-.PHONY: pre-commit
-pre-commit: ## Run pre-commit checks.
-	poetry run pre-commit run --config ./.pre-commit-config.yaml
-
-.PHONY: patch
-patch: ## Bump project version to next patch (bugfix release/chores).
-	poetry version patch
-
-.PHONY: minor
-minor: ## Bump project version to next minor (feature release).
-	poetry version minor
-
-.PHONY: clean-notebooks
-clean-notebooks: ## Clean Jupyter Notebooks of output data.
-	find . -name '*.ipynb' | xargs -P 6 -n 1 poetry run python -m jupyter nbconvert --clear-output --inplace
+.PHONY: run-split
+run-split: ## Run first example script.
+	python src/scripts/split_base.py
 
 .PHONY: clean
 clean: ## Clean project's temporary files.
